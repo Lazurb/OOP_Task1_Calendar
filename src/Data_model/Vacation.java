@@ -5,10 +5,10 @@ import java.util.Objects;
     public record Vacation(LocalDate start, LocalDate end) {
 
         public Vacation {
-            Objects.requireNonNull(start, "start");
-            Objects.requireNonNull(end, "end");
+            Objects.requireNonNull(start, "начало");
+            Objects.requireNonNull(end, "конец");
             if (end.isBefore(start)) {
-                throw new IllegalArgumentException("Vacation end must not be before start");
+                throw new IllegalArgumentException("Отпуск не заканчивается раньше начала");
             }
         }
 
