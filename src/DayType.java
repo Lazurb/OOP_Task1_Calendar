@@ -19,10 +19,6 @@ public enum DayType {
         return description;
     }
 
-    /**
-     * Возвращает количество рабочих часов для данного типа дня.
-     * Для нерабочих дней возвращает 0.
-     */
     public int getWorkHoursPerDay() {
         return workHoursPerDay;
     }
