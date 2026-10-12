@@ -1,3 +1,5 @@
+package model;
+
 import java.time.LocalDate;
 import java.time.format.TextStyle;
 import java.util.Locale;
@@ -10,11 +12,9 @@ public record Holiday(LocalDate date, String name, boolean transferable) {
     }
 
     public String formatted() {
-        var dayOfWeek = date.getDayOfWeek().getDisplayName(TextStyle.FULL_STANDALONE, Locale.forLanguageTag("ru"));
+        var dayOfWeek = date.getDayOfWeek()
+                .getDisplayName(TextStyle.FULL_STANDALONE, Locale.forLanguageTag("ru"));
         return String.format("%s (%s) — %s%s",
-                date,
-                dayOfWeek,
-                name,
-                transferable ? " [переносится]" : "");
+                date, dayOfWeek, name, transferable ? " [переносится]" : "");
     }
 }

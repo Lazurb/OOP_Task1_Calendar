@@ -1,3 +1,4 @@
+package model;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
@@ -20,8 +21,7 @@ public final class HolidayTransferRule implements CalendarRule {
             }
         }
 
-        var transferred = findTransferredTo(date);
-        if (transferred.isPresent()) {
+        if (findTransferredTo(date).isPresent()) {
             return Optional.of(DayType.HOLIDAY);
         }
 
@@ -54,7 +54,7 @@ public final class HolidayTransferRule implements CalendarRule {
     private boolean isPreHolidayShortened(LocalDate date) {
         var nextDay = date.plusDays(1);
         for (var holiday : holidays) {
-            if (holiday.date().equals(nextDay) && !holiday.transferable()) {
+            if (holiday.date().equals(nextDay)) {
                 return true;
             }
         }

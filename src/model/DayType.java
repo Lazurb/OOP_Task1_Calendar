@@ -1,11 +1,11 @@
+package model;
 
 public enum DayType {
-
     WORKING("Рабочий", 8),
     WEEKEND("Выходной", 0),
     HOLIDAY("Праздник", 0),
     PRE_HOLIDAY_SHORT("Предпраздничный сокращённый", 7),
-    VACATION("Школьные каникулы", 0);
+    VACATION("Каникулы", 0);
 
     private final String description;
     private final int workHoursPerDay;
@@ -15,13 +15,8 @@ public enum DayType {
         this.workHoursPerDay = workHoursPerDay;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public int getWorkHoursPerDay() {
-        return workHoursPerDay;
-    }
+    public String getDescription() { return description; }
+    public int getWorkHoursPerDay() { return workHoursPerDay; }
 
     public boolean isWorking() {
         return this == WORKING || this == PRE_HOLIDAY_SHORT;
