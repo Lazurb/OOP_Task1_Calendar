@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
-public final class HolidayTransferRule implements WorkDayRule {
+public final class HolidayTransferRule implements CalendarRule {
 
     private final List<Holiday> holidays;
 

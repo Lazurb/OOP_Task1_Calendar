@@ -1,8 +1,7 @@
-import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.Optional;
 
-public final class StandardWeekRule implements WorkDayRule {
+public final class StandardWeekRule implements CalendarRule {
 
     @Override
     public Optional<DayType> resolve(LocalDate date) {
