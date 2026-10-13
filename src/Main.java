@@ -14,7 +14,7 @@ public class Main {
         holidays.forEach(h -> System.out.println("    • " + h.formatted()));
 
         var vacations = createVacations();
-        System.out.printf("%n[2] Периодов каникул: %d%n", vacations.size());
+        System.out.printf("%n[2] Периодов отпусков: %d%n", vacations.size());
         vacations.forEach(v -> System.out.printf("    • %s — %s%n", v.start(), v.end()));
 
         var holidayRule = new HolidayTransferRule(holidays);
@@ -22,12 +22,12 @@ public class Main {
         var weekRule = new StandardWeekRule();
         var calendar = new WorkCalendar(List.of(holidayRule, vacationRule, weekRule));
 
-        System.out.println("\n[3] Правила календаря:");
+        System.out.println("[3] Правила календаря:");
         System.out.println("    1. " + holidayRule.ruleName());
         System.out.println("    2. " + vacationRule.ruleName());
         System.out.println("    3. " + weekRule.ruleName());
 
-        System.out.println("\n[4] Календарь на январь :");
+        System.out.println("[4] Календарь на январь :");
         System.out.println(calendar.printMonth(2026, 1));
 
         System.out.println("[5] Определение типа дат:");
@@ -47,19 +47,19 @@ public class Main {
             System.out.printf("    %s → %s%n", d, calendar.getEntry(d).getType().getDescription());
         }
 
-        System.out.println("\n[6] Январь 2026: " + calendar.monthlySummary(2026, 1));
+        System.out.println("[6] Январь 2026: " + calendar.monthlySummary(2026, 1));
         System.out.println("[7] Февраль 2026: " + calendar.monthlySummary(2026, 2));
-        System.out.println("\n[8] I квартал 2026: " + calendar.quarterlySummary(2026, 1));
-        System.out.println("\n[9] 2026 год: " + calendar.annualSummary(2026));
+        System.out.println("[8] I квартал 2026: " + calendar.quarterlySummary(2026, 1));
+        System.out.println("[9] 2026 год: " + calendar.annualSummary(2026));
 
-        System.out.println("\n[10] Праздники 2026:");
+        System.out.println("[10] Праздники 2026:");
         calendar.holidaysOfYear(2026).forEach(h -> System.out.println("    • " + h.formatted()));
 
-        System.out.println("\n[11] Записи 1–7 января 2026:");
+        System.out.println("[11] Записи 1–7 января 2026:");
         calendar.entriesBetween(LocalDate.of(2026, 1, 1), LocalDate.of(2026, 1, 7))
                 .forEach(e -> System.out.println("    " + e));
 
-        System.out.println("\n[12] Обработка ошибок:");
+        System.out.println("[12] Обработка ошибок:");
         try {
             calendar.getDayType(LocalDate.of(2019, 1, 1));
         } catch (InvalidDateException e) {
@@ -76,7 +76,7 @@ public class Main {
             System.out.println("     " + e.getMessage() + " [" + e.getOperationContext() + "]");
         }
 
-        System.out.println("\n[13] equals / hashCode:");
+        System.out.println("[13] equals / hashCode:");
         var e1 = new CalendarEntry(LocalDate.of(2026, 1, 1), DayType.HOLIDAY);
         var e2 = new CalendarEntry(LocalDate.of(2026, 1, 1), DayType.HOLIDAY);
         var e3 = new CalendarEntry(LocalDate.of(2026, 1, 1), DayType.WORKING);
