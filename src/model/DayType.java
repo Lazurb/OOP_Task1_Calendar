@@ -5,7 +5,7 @@ public enum DayType {
     WEEKEND("Выходной", 0),
     HOLIDAY("Праздник", 0),
     PRE_HOLIDAY_SHORT("Предпраздничный сокращённый", 7),
-    VACATION("Каникулы", 0);
+    VACATION("Отпуск", 0);
 
     private final String description;
     private final int workHoursPerDay;
