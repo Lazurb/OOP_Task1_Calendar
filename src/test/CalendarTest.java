@@ -33,11 +33,10 @@ public class CalendarTest {
             System.out.println(" Все тесты успешно пройдены");
         } else {
             System.out.println(" Есть ошибки, проверьте вывод выше.");
-            System.exit(1); // Завершаем с кодом ошибки, если есть провалы
+            System.exit(1);
         }
     }
 
-    // --- Вспомогательные методы для создания календаря ---
     private static WorkCalendar createTestCalendar() {
         List<Holiday> holidays = List.of(
                 new Holiday(LocalDate.of(2024, 1, 1), "Новый год", false),
@@ -58,7 +57,6 @@ public class CalendarTest {
         return new WorkCalendar(List.of(holidayRule, vacationRule, weekRule));
     }
 
-    // --- Собственные методы утверждений (Assertions) ---
     private static void assertEquals(Object expected, Object actual, String testName) {
         if (expected == null && actual == null) {
             pass(testName);
@@ -75,11 +73,7 @@ public class CalendarTest {
         if (condition) pass(testName);
         else fail(testName, "Ожидалось true, но получено false");
     }
-
-    private static void assertFalse(boolean condition, String testName) {
-        if (!condition) pass(testName);
-        else fail(testName, "Ожидалось false, но получено true");
-    }
+    
 
     private static void assertInvalidDateException(Runnable executable, String expectedMessage, String expectedContext, String testName) {
         try {
@@ -189,7 +183,7 @@ public class CalendarTest {
     private static void testInvalidDateExceptionForOutOfRangeDate() {
         WorkCalendar calendar = createTestCalendar();
         assertInvalidDateException(
-                () -> calendar.getDayType(LocalDate.of(2019, 1, 1)), // Раньше MIN_DATE (2020-01-01)
+                () -> calendar.getDayType(LocalDate.of(2019, 1, 1)),
                 "Дата 2019-01-01 вне диапазона",
                 "getDayType",
                 "Exception: Дата вне диапазона"
@@ -199,7 +193,7 @@ public class CalendarTest {
     private static void testInvalidDateExceptionForInvalidRange() {
         WorkCalendar calendar = createTestCalendar();
         LocalDate from = LocalDate.of(2024, 2, 1);
-        LocalDate to = LocalDate.of(2024, 1, 1); // Начало позже конца
+        LocalDate to = LocalDate.of(2024, 1, 1);
 
         assertInvalidDateException(
                 () -> calendar.countWorkingDays(from, to),
