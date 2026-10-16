@@ -11,10 +11,10 @@ public final class VacationRule implements CalendarRule {
     public record VacationPeriod(LocalDate start, LocalDate end) {
         public VacationPeriod {
             if (start == null || end == null) {
-                throw new IllegalArgumentException("Даты каникул не могут быть null");
+                throw new IllegalArgumentException("Даты отпусков не могут быть null");
             }
             if (start.isAfter(end)) {
-                throw new IllegalArgumentException("Начало каникул позже конца");
+                throw new IllegalArgumentException("Начало отпусков позже конца");
             }
         }
 
