@@ -44,7 +44,7 @@ public class Main {
                 LocalDate.of(2026, 11, 4), LocalDate.of(2026, 12, 31)
         );
         for (var d : dates) {
-            System.out.printf("    %s → %s%n", d, calendar.getEntry(d).getType().getDescription());
+            System.out.printf("    %s -> %s%n", d, calendar.getEntry(d).getType().getDescription());
         }
 
         System.out.println("[6] Январь 2026: " + calendar.monthlySummary(2026, 1));
@@ -53,9 +53,9 @@ public class Main {
         System.out.println("[9] 2026 год: " + calendar.annualSummary(2026));
 
         System.out.println("[10] Праздники 2026:");
-        calendar.holidaysOfYear(2026).forEach(h -> System.out.println("    • " + h.formatted()));
+        calendar.holidaysOfYear(2026).forEach(h -> System.out.println("    - " + h.formatted()));
 
-        System.out.println("[11] Записи 1–7 января 2026:");
+        System.out.println("[11] Записи 1-7 января 2026:");
         calendar.entriesBetween(LocalDate.of(2026, 1, 1), LocalDate.of(2026, 1, 7))
                 .forEach(e -> System.out.println("    " + e));
 

@@ -24,10 +24,8 @@ public class CalendarTest {
         testInvalidDateExceptionForOutOfRangeDate();
         testInvalidDateExceptionForInvalidRange();
 
-        System.out.println("\n" + "=".repeat(50));
         System.out.printf(" Пройдено: %d%n", passed);
-        System.out.printf(" Провалено: %d%n", failed);
-        System.out.println("=".repeat(50));
+
 
         if (failed == 0) {
             System.out.println(" Все тесты успешно пройдены");

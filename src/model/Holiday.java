@@ -14,7 +14,7 @@ public record Holiday(LocalDate date, String name, boolean transferable) {
     public String formatted() {
         var dayOfWeek = date.getDayOfWeek()
                 .getDisplayName(TextStyle.FULL_STANDALONE, Locale.forLanguageTag("ru"));
-        return String.format("%s (%s) — %s%s",
+        return String.format("%s (%s) - %s%s",
                 date, dayOfWeek, name, transferable ? " [переносится]" : "");
     }
 }
