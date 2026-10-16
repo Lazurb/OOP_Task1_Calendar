@@ -48,7 +48,6 @@ public final class WorkCalendar {
         var sb = new StringBuilder();
         sb.append(String.format("%n Календарь: %s %d %n", monthName(month), year));
         sb.append(String.format("%-12s | %-35s%n", "Дата", "Тип дня"));
-        sb.append("-".repeat(50)).append("\n");
         for (int day = 1; day <= ym.lengthOfMonth(); day++) {
             var entry = getEntry(ym.atDay(day));
             sb.append(String.format("%-12s | %-35s%n", entry.getDate(), entry));

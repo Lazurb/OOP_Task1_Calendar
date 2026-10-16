@@ -11,11 +11,11 @@ public class Main {
         System.out.println("ПРОИЗВОДСТВЕННЫЙ КАЛЕНДАРЬ");
         var holidays = createHolidays();
         System.out.printf("%n[1] Праздников: %d%n", holidays.size());
-        holidays.forEach(h -> System.out.println("    • " + h.formatted()));
+        holidays.forEach(h -> System.out.println("     " + h.formatted()));
 
         var vacations = createVacations();
         System.out.printf("%n[2] Периодов отпусков: %d%n", vacations.size());
-        vacations.forEach(v -> System.out.printf("    • %s — %s%n", v.start(), v.end()));
+        vacations.forEach(v -> System.out.printf("     %s - %s%n", v.start(), v.end()));
 
         var holidayRule = new HolidayTransferRule(holidays);
         var vacationRule = new VacationRule(vacations);
